@@ -1,13 +1,30 @@
 {% extends 'core/base.html' %}
+{% load static %}
     
 {% block titulo %}
-    <h1>Core</h1>
+
 {% endblock titulo %}
     
 
 {% block contenido %}
-    <ul>
-        <li><a href="{% url 'biblioteca:index' %}">Mi Biblioteca</a></li>
-    </ul>
+   
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'core/img/portadas_libros.webp' %}" alt="..." /></div>
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light">Una biblioteca en tu bolsillo</h1>
+                    <p>Encuentra tus obras favoritas entre cientos de miles de libros y audiolibros.</p>
+                    <a class="btn btn-primary" href="#!">Más info!</a>
+                </div>
+            </div>
+
+            <!-- Content Row-->
+            <div class="row gx-4 gx-lg-5">
+
+                {% include 'core/card.html' with titulo="Tarjeta 1" %}
+                {% include 'core/card.html' with titulo="Tarjeta 2" %}
+                {% include 'core/card.html' with titulo="Tarjeta 3" %}
+        
+            </div>
 {% endblock contenido %}
         

@@ -1,16 +1,15 @@
 from django.shortcuts import render
 from .forms import LibroBuscarFormulario, LibroFormulario
+from . import models
 
 
 def home(request):
-    return render(request, "biblioteca/index.html")
+    libros = models.Libro.objects.all()
+    context = {"libros": libros}
 
+    return render(request, "biblioteca/index.html", context)
 
-def libro_crear(request):
-    if request.method == "GET":
-        # Mostrar formulario
-        context = {"form":LibroFormulario()}
-        return render(request, "biblioteca/formulario_avanzado.html")
-    else:
-        # Procesar formulario
-        pass  # Agregar aquí la lógica para procesar el formulario
+def crear_libros_varios(request):
+    pass
+    
+

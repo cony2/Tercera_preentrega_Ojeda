@@ -1,25 +1,22 @@
 from django.db import models
 
-class Autor(models.Model):
+class Categoria(models.Model):
     nombre = models.CharField(max_length=100)
-    nacionalidad = models.CharField(max_length=100)
-    fecha_nacimiento = models.DateField()
 
     def __str__(self):
         return self.nombre
     
 class Libro(models.Model):
-    id_articulo = models.CharField(max_length=100)
     titulo = models.CharField(max_length=100)
-    autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
+    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return self.titulo
     
-class Prestamo(models.Model):
+class Compra(models.Model):
     libro = models.ForeignKey(Libro, on_delete=models.CASCADE)
-    fecha_prestamo = models.DateField()
-    fecha_devolucion = models.DateField(null=True, blank=True)
+    fecha_compra = models.DateField()
+
 
     def __str__(self):
-        return f"Prestamo de '{self.libro}'"
+        return f"Compra de '{self.libro}'"
