@@ -7,8 +7,18 @@
 
 {% block contenido %}
 
-    {% for object in libros %}
-        {{ object }}
+
+    {% for libro in libros %}
+    <h2>{{ libro }}</h2>
+
+    {% if libro.categoria %}
+        <p>{{ libro.categoria }}</p>
+    {% else %}
+        <p>Sin categoría</p>
+    {% endif %}
+            
+
+
     {% endfor %}
 
 {% endblock contenido %}

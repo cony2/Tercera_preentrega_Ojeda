@@ -7,5 +7,9 @@ app_name = "biblioteca"
 
 urlpatterns = [
     path("", views.home, name="index"),
-    # path('/crear', views.libro_crear, name='crear-libro')
+    path ("crear/libro", views.crear_libro, name="crear-libro"),
+    path("crear/categoria", views.crear_categoria, name="crear-categoria"),
+    path("crear/compra", views.crear_compra, name="crear-compra")
+
+   
 ]

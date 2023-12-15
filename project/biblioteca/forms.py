@@ -1,10 +1,29 @@
 from django import forms
-
-class LibroFormulario(forms.Form):
-    id_articulo = forms.CharField(max_length=100)
-    titulo = forms.CharField(max_length=100)
-    #autor = forms.ForeignKey(Autor, on_delete=models.CASCADE)
+from . import models
 
 
-class LibroBuscarFormulario(forms.Form):
-    id_articulo = forms.CharField(max_length=100)
+
+
+class LibroForm(forms.ModelForm):
+    class Meta:
+        model = models.Libro
+        fields = "__all__"
+
+
+class CategoriaForm(forms.ModelForm):
+    class Meta:
+        model = models.Categoria
+        fields = "__all__"
+
+class CompraForm(forms.ModelForm):
+    class Meta:
+        model = models.Compra
+        fields = "__all__"
+
+
+
+
+
+
+# class LibroBuscarFormulario(forms.Form):
+#     id_articulo = forms.CharField(max_length=100)
